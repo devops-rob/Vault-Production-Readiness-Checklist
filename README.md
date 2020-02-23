@@ -41,3 +41,10 @@ This checklist will prepare you launch production-ready vault clusters into any 
 | &#9744;   | <details><summary>Vault Platform Monitoring</summary> <p> Ensure monitoring and Alerting is set-up and configured for Vault platform metrics according to the best practice guidance set out [here.](https://s3-us-west-2.amazonaws.com/hashicorp-education/whitepapers/Vault/Vault-Consul-Monitoring-Guide.pdf) </p> </details> |
 | &#9744;   | <details><summary>Consul Platform Monitoring (Consul only)</summary> <p> Ensure monitoring and Alerting is set-up and configured for Consul Platform metrics according to the best practice guidance set out [here.](https://s3-us-west-2.amazonaws.com/hashicorp-education/whitepapers/Vault/Vault-Consul-Monitoring-Guide.pdf) </p> </details> |
 | &#9744;   | <details><summary>Infrastructure Monitoring</summary> <p> Ensure monitoring and Alerting is set-up and configured for compute infrastructure according to the best practice guidance set out [here.](https://s3-us-west-2.amazonaws.com/hashicorp-education/whitepapers/Vault/Vault-Consul-Monitoring-Guide.pdf) </p> </details> |
+
+### **Load Balancing**
+
+|  |  |
+| --------- | ------- |
+| &#9744;   | <details><summary>TLS Encryption</summary> <p> </summary> <p> If your architecture includes a load balancer in front of your vault cluster, Ensure that TLS is enabled and http traffic is re-directed to https</p> </details> |
+| &#9744;   | <details><summary>Health Checks</summary> <p> </summary> <p> Ensure health probes are configured on the load balancer. Configure routing rules according to [these response codes](https://www.vaultproject.io/api/system/health.html) </p> </details> |
