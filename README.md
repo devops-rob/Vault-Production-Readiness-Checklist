@@ -49,3 +49,12 @@ This checklist will prepare you launch production-ready vault clusters into any 
 | &#9744;   | <details><summary>TLS Encryption</summary> <p> </summary> <p> If your architecture includes a load balancer in front of your vault cluster, Ensure that TLS is enabled and http traffic is re-directed to https</p> </details> |
 | &#9744;   | <details><summary>HTTP Redirects</summary> <p> </summary> <p> Ensure that http traffic is re-directed to https</p> </details> |
 | &#9744;   | <details><summary>Health Checks</summary> <p> </summary> <p> Ensure health probes are configured on the load balancer. Configure routing rules according to [these response codes](https://www.vaultproject.io/api/system/health.html) </p> </details> |
+
+
+### **Configuration Management**
+
+|  |  |
+| --------- | ------- |
+| &#9744;   | <details><summary>Infrastructure as Code (Virtual Machines only)</summary> <p> </summary> <p> All Virtual infrastructure should be deployed and managed using an Infrastructure as code tool like [Terrafrom](https://www.terraform.io/) </p> </details> |
+| &#9744;   | <details><summary>Vault Platform Configuration</summary> <p> </summary> <p> Vault Platform configuration should be described in code using a tool like [Terrafrom](https://www.terraform.io/).  Configuration such as Auth Methods, Secrets Engines, Audit Devices and Policies should all be configured using code</p> </details> |
+| &#9744;   | <details><summary>Version Control</summary> <p> </summary> <p> All Infrastructure as Code and configuration code should be stored under version control using a Source Control Management system that is self-hosted or a private repository on a SaaS based Source Control Management system </p> </details> |
