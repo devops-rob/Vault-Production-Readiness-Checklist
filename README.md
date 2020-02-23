@@ -47,4 +47,5 @@ This checklist will prepare you launch production-ready vault clusters into any 
 |  |  |
 | --------- | ------- |
 | &#9744;   | <details><summary>TLS Encryption</summary> <p> </summary> <p> If your architecture includes a load balancer in front of your vault cluster, Ensure that TLS is enabled and http traffic is re-directed to https</p> </details> |
+| &#9744;   | <details><summary>HTTP Redirects</summary> <p> </summary> <p> Ensure that http traffic is re-directed to https</p> </details> |
 | &#9744;   | <details><summary>Health Checks</summary> <p> </summary> <p> Ensure health probes are configured on the load balancer. Configure routing rules according to [these response codes](https://www.vaultproject.io/api/system/health.html) </p> </details> |
