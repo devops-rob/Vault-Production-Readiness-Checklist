@@ -1,8 +1,8 @@
 # Vault Production Readiness Checklist
 This checklist will prepare you launch production-ready vault clusters into any major Cloud provider or on Premise
 
+1. [Infrastructure Architecture](#Infrastructure-Architecture)
 1. [Storage Backend](#Storage-Backend)
-1. [Infrastructure Architecture](#Infrastructure-Architecture])
 1. [Monitoring and Alerting](#Monitoring-and-Alerting)
 1. [Load Balancing](#Load-Balancing)
 1. [Configuration Management](#Configuration-Management)
@@ -10,17 +10,6 @@ This checklist will prepare you launch production-ready vault clusters into any 
 1. [Compliance and Governance](#Compliance-and-Governance)
 1. [Disaster Recovery](#Disaster-Recovery)
 1. [Vault Hardening](#Vault-Hardening)
-
-### **Storage Backend**
-
-|  |  |
-| --------- | ------- |
-| &#9744;   | <details><summary>High Availability</summary> <p> For production Vault clusters, in most cases, businesses will require High Availability for optimum uptime.  If this is the case for your deployment, choose a storage backend that enables High Availability. for more information about each storage Backend option [here.](https://www.vaultproject.io/docs/configuration/storage/index.html) It is a recommended pattern to use [HashiCorp Consul's](https://www.consul.io/) Key/Value store as the storage backend. </p> </details> |
-| &#9744;   | <details><summary>Storage Stanza Configuration Secrets</summary> <p> Configuring some storage backend options in the storage stanza requires a connection string which includes a username and password for Vault to connect to them.  These credentials are in plain text and represent a security risk to the storage backend. It's important to use a secure secret injection method to populate the storage stanza in the configuration file.  This enables the configuration file to be placed in source control.  It's also important to add some access control to the configuration file to mitigate against the risk of the file being read on the system. </p> </details> |
-| &#9744;   | <details><summary>Gossip Encryption (Consul only)</summary> <p> If using Consul as a storage backend, members of the Consul cluster communicate with each other using a gossip protocol.  This network traffic should be encrypted to minimise security risks.  You can read more about consul encryption [here.](https://www.consul.io/docs/agent/encryption.html)  </p> </details> |
-| &#9744;   | <details><summary>ACLs (Consul only)</summary> <p> If using Consul as a storage backend, the path that Vault uses to store it's encrypted data should be protected using Consul's ACL system. Once configured, the Management ACL token should be revoked.  You can read more about configuring Consul's ACL system [here.](https://www.consul.io/docs/acl/index.html)  </p> </details> |
-| &#9744;   | <details><summary>Backups</summary> <p> Your chosen Storage Backend is a stateful service and as such, it needs to be backed up on a regular basis.  For consul, the Consul snapshot feature used in conjuction with Disk backups provide a viable implementation of a backup stratgey </p> </details> |
-
 
 ### **Infrastructure Architecture**
 
@@ -32,6 +21,15 @@ This checklist will prepare you launch production-ready vault clusters into any 
 | &#9744;   | <details><summary>Vault accessibility</summary> <p> Vault will likely contain business critical secrets which makes it a prime target for malicious actors. Access to vault to should be restricted to your private networks and not be accessible on the internet.  The Use of Virtual Private Networks is a commonly used approach to allow access to Vault from unknown networks</p> </details> |
 | &#9744;   | <details><summary>Compute Resouces</summary> <p> Ensure Hardware servers and Virtual Machines have been appropriately resources in accordance with the [Deployment System Requirements](https://learn.hashicorp.com/vault/operations/ops-reference-architecture#deployment-system-requirements) </p> </details> |
 
+### **Storage Backend**
+
+|  |  |
+| --------- | ------- |
+| &#9744;   | <details><summary>High Availability</summary> <p> For production Vault clusters, in most cases, businesses will require High Availability for optimum uptime.  If this is the case for your deployment, choose a storage backend that enables High Availability. for more information about each storage Backend option [here.](https://www.vaultproject.io/docs/configuration/storage/index.html) It is a recommended pattern to use [HashiCorp Consul's](https://www.consul.io/) Key/Value store as the storage backend. </p> </details> |
+| &#9744;   | <details><summary>Storage Stanza Configuration Secrets</summary> <p> Configuring some storage backend options in the storage stanza requires a connection string which includes a username and password for Vault to connect to them.  These credentials are in plain text and represent a security risk to the storage backend. It's important to use a secure secret injection method to populate the storage stanza in the configuration file.  This enables the configuration file to be placed in source control.  It's also important to add some access control to the configuration file to mitigate against the risk of the file being read on the system. </p> </details> |
+| &#9744;   | <details><summary>Gossip Encryption (Consul only)</summary> <p> If using Consul as a storage backend, members of the Consul cluster communicate with each other using a gossip protocol.  This network traffic should be encrypted to minimise security risks.  You can read more about consul encryption [here.](https://www.consul.io/docs/agent/encryption.html)  </p> </details> |
+| &#9744;   | <details><summary>ACLs (Consul only)</summary> <p> If using Consul as a storage backend, the path that Vault uses to store it's encrypted data should be protected using Consul's ACL system. Once configured, the Management ACL token should be revoked.  You can read more about configuring Consul's ACL system [here.](https://www.consul.io/docs/acl/index.html)  </p> </details> |
+| &#9744;   | <details><summary>Backups</summary> <p> Your chosen Storage Backend is a stateful service and as such, it needs to be backed up on a regular basis.  For consul, the Consul snapshot feature used in conjuction with Disk backups provide a viable implementation of a backup stratgey </p> </details> |
 
 ### **Monitoring and Alerting**
 
