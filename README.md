@@ -25,3 +25,4 @@ This checklist will prepare you launch production-ready vault clusters into any 
 |  |  |
 | --------- | ------- |
 | &#9744;   | <details><summary>Availability Zones</summary> <p> Nodes in Vault clusters (and Consul clusters if being used as a storage backend) should be spread accross two or more failure domains known as Availability zones. The loss of a single Availability zone should not result result in a loss of service. </p> </details> |
+| &#9744;   | <details><summary>Machine Images (Virtual Machines only)</summary> <p> If you are deploying your Vault nodes on virtual machines, It is reccomended to build re-usable VM images that can be used to create cluster nodes in an immutable way.  Tools like [Hashicorp Packer](https://packer.io/) are designed to help build repeatable machine images for most virtualised and cloud platform. Machine images should be versioned and should follow a release cycle as new images are produced.</p> </details> |
