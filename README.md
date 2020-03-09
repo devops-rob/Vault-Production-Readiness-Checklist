@@ -2,14 +2,17 @@
 This checklist will prepare you launch production-ready vault clusters into any major Cloud provider or on Premise
 
 1. [Infrastructure Architecture](#Infrastructure-Architecture)
-1. [Storage Backend](#Storage-Backend)
-1. [Monitoring and Alerting](#Monitoring-and-Alerting)
+1. [Consul Storage Backend](#Consul-Storage-Backend)
 1. [Load Balancing](#Load-Balancing)
+1. [Monitoring and Alerting](#Monitoring-and-Alerting)
 1. [Configuration Management](#Configuration-Management)
-1. [Operational Management](#Operational-Management)
-1. [Compliance and Governance](#Compliance-and-Governance)
-1. [Disaster Recovery](#Disaster-Recovery)
-1. [Vault Hardening](#Vault-Hardening)
+1. [Vault Configuration](#Vault-Configuration)
+1. [Identity & Access Management](#Identity-&-Access-Management)
+1. [Security Hardening](#Security-Hardening)
+1. [Operational Readiness](#Operational-Readiness)
+1. [Observability](#Disaster-Recovery)
+1. [Governance and compliance](#Governance-and-compliance)
+
 
 ### **Infrastructure Architecture**
 
@@ -32,15 +35,6 @@ This checklist will prepare you launch production-ready vault clusters into any 
 | &#9744;   | <details><summary>Consul Backups scheduled</summary> <p>As Consul is being used as a data store that Vault uses, it should be considered a stateful service, and as such, should have a backup strategy.  Consul snapshot, in addition to disk backups should be implemented on a regular schedule. For more information about consul snapshot, click [here](https://www.consul.io/docs/commands/snapshot.html)</p> </details> |
 | &#9744;   | <details><summary>Consul Clients installed on Vault Nodes</summary> <p>Vault should not talk directly to Consul backend as this introduces an increased attack vector.  Instead, Consul should be installed on the Vault servers and configured in client mode. The clients will facilitate the communication between Vault and Consul.</p> </details> |
 | &#9744;   | <details><summary>Consul UI enabled (Optional)</summary> <p>If using a 5 node consul cluster, you can choose to enable the UI; however, it is recommended that the UI is enabled on two nodes only.</p> </details> |
-
-### **Monitoring and Alerting**
-
-|  |  |
-| --------- | ------- |
-| &#9744;   | <details><summary>Telemetry</summary> <p> </summary> <p> Enable and configure [telemetry](https://www.vaultproject.io/docs/configuration/telemetry/) in the Vault cofiguration file according to the monitoring tools of your choice</p> </details> |
-| &#9744;   | <details><summary>Vault Platform Monitoring</summary> <p> Ensure monitoring and Alerting is set-up and configured for Vault platform metrics according to the best practice guidance set out [here.](https://s3-us-west-2.amazonaws.com/hashicorp-education/whitepapers/Vault/Vault-Consul-Monitoring-Guide.pdf) </p> </details> |
-| &#9744;   | <details><summary>Consul Platform Monitoring (Consul only)</summary> <p> Ensure monitoring and Alerting is set-up and configured for Consul Platform metrics according to the best practice guidance set out [here.](https://s3-us-west-2.amazonaws.com/hashicorp-education/whitepapers/Vault/Vault-Consul-Monitoring-Guide.pdf) </p> </details> |
-| &#9744;   | <details><summary>Infrastructure Monitoring</summary> <p> Ensure monitoring and Alerting is set-up and configured for compute infrastructure according to the best practice guidance set out [here.](https://s3-us-west-2.amazonaws.com/hashicorp-education/whitepapers/Vault/Vault-Consul-Monitoring-Guide.pdf) </p> </details> |
 
 ### **Load Balancing**
 
