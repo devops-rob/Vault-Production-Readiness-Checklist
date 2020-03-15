@@ -1,9 +1,3 @@
----
-layout: page
-title: Vault Checklist
-
----
-
 # Vault Production Readiness Checklist
 This checklist will prepare you launch production-ready vault clusters into any major Cloud provider or on Premise
 
@@ -27,8 +21,8 @@ This checklist will prepare you launch production-ready vault clusters into any 
 | &#9744;   | <details><summary>Infrastructure Workloads spread accross Availability Zones</summary> <p> Nodes in Vault clusters (and Consul clusters if being used as a storage backend) should be spread accross two or more failure domains known as Availability zones. The loss of a single Availability zone should not result result in a loss of service. </p> </details> |
 | &#9744;   | <details><summary>Machine Images Created (Virtual Machines only)</summary> <p> If you are deploying your Vault nodes on virtual machines, It is reccomended to build re-usable VM images that can be used to create cluster nodes in an immutable way.  Tools like [Hashicorp Packer](https://packer.io/) are designed to help build repeatable machine images for most virtualised and cloud platform. Machine images should be versioned and should follow a release cycle as new images are produced.</p> </details> |
 | &#9744;   | <details><summary>Replication Enabled (Enterprise only)</summary> <p> If you are using the Enterprise version of Vault, you can enable replication between two or more Vault clusters in different geographical regions for added protection is Disaster Recovery scenarios.  Replication can be configured in Disaster Recovery Mode or Performance Replication mode.  If you are planing on using Replication, you need to provision infrastructure in an alternative region, with nodes spread accross multiple Availability Zones. For more information about the Enterprise Replication feature, see [the official documentation.](https://www.vaultproject.io/docs/internals/replication/) </p> </details> |
-| &#9744;   | <details><summary>Firewall rules configured to control access to Vault</summary> <p> Vault will likely contain business critical secrets which makes it a prime target for malicious actors. Access to vault to should be restricted to your private networks and not be accessible on the internet.  The Use of Virtual Private Networks is a commonly used approach to allow access to Vault from unknown networks</p> </details> |
-| &#9744;   | <details><summary>Compute Resouces satisfy the minimum requirements</summary> <p> Ensure Hardware servers and Virtual Machines have been appropriately resources in accordance with the [Deployment System Requirements](https://learn.hashicorp.com/vault/operations/ops-reference-architecture#deployment-system-requirements) </p> </details> |
+| &#9744;   | <details><summary>Firewall rules configured to control access to Vault</summary> <p>Vault will likely contain business critical secrets which makes it a prime target for malicious actors. Access to vault to should be restricted to your private networks and not be accessible on the internet.  The Use of Virtual Private Networks is a commonly used approach to allow access to Vault from unknown networks</p> </details> |
+| &#9744;   | <details><summary>Compute Resouces satisfy the minimum requirements</summary> <p>Ensure Hardware servers and Virtual Machines have been appropriately resources in accordance with the [Deployment System Requirements](https://learn.hashicorp.com/vault/operations/ops-reference-architecture#deployment-system-requirements) </p> </details> |
 | &#9744;   | <details><summary>Secondary Disk</summary> <p>Ensure that vault servers have a secondary disk attached to them. This will help with Audit Device Fault tolerance</p> </details> |
 
 ### **Consul Storage Backend**
